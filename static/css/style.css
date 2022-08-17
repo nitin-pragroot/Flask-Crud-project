@@ -1,0 +1,14 @@
+form
+{
+    background-color: rgb(196, 224, 248);
+    height: 550px;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 15px 15px 8px grey;
+
+}
+
+table
+{
+    background-color: aliceblue;
+}
