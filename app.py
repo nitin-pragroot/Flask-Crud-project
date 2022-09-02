@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)  # Initialise app
 
 # config
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://nitin:saini@localhost/flask_student'
 db = SQLAlchemy(app)
 
 
@@ -12,7 +13,7 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name =  db.Column(db.String(200))
     email = db.Column(db.String(200))
-    contact = db.Column(db.Integer)
+    contact = db.Column(db.Integer, nullable=False)
     course = db.Column(db.String(200))
 
 # Show data
@@ -67,5 +68,5 @@ def deleteStudent(id):
 
 
 if __name__ == '__main__':
-    db.create_all()
+    # db.create_all()
     app.run(debug=True)
