@@ -4,7 +4,7 @@ app = Flask(__name__)  # Initialise app
 
 # config
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://nitin:saini@localhost/flask_student'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://yblzexucwtgxmw:fa05c158eb23b5e6e10d68296083d8db6450496111306a61b5e549a0f30a37ac@localhost/d76t4ssf80821q'
 db = SQLAlchemy(app)
 
 
