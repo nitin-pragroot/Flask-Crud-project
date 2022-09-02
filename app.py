@@ -2,9 +2,13 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)  # Initialise app
 
+
+DB_NAME = "database.db"
 # config
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://yblzexucwtgxmw:fa05c158eb23b5e6e10d68296083d8db6450496111306a61b5e549a0f30a37ac@localhost/d76t4ssf80821q'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+app.config['SECRET_KEY'] = "LALALALA"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://yblzexucwtgxmw:fa05c158eb23b5e6e10d68296083d8db6450496111306a61b5e549a0f30a37ac@localhost/d76t4ssf80821q'
 db = SQLAlchemy(app)
 
 
@@ -36,7 +40,7 @@ def add():
                return redirect('/')
 
         else:
-              return render_template('add.html')
+            return render_template('add.html')
 
 # Update route
 @app.route('/edit/<int:id>',methods = ['GET','POST'])
@@ -68,5 +72,5 @@ def deleteStudent(id):
 
 
 if __name__ == '__main__':
-    # db.create_all()
+    db.create_all()
     app.run(debug=True)
